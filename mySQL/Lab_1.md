@@ -1,0 +1,157 @@
+# LAB 1 : Basic SQL queries
+### 18-07-2024
+
+## Questions & Answers
+
+**1. How to install mySQL**
+
+```bash
+sudo apt install mysql-server
+
+```
+
+**2. Finding year from given date**
+
+```mySQL
+SELECT YEAR(my_date) AS year_value
+```
+
+**3. Check whether date is of given format**
+
+```mySQL
+select str_to_date('2024-07-18','%y-%m-%d') as valid_date;
+```
+
+**4. Retrieve next date**
+
+```mySQL
+SELECT DATE_ADD("2024-07-18", INTERVAL 1 DAY);
+```
+
+**5. Retrive user name and password**
+
+```mySQL
+SELECT CURRENT_TIMESTAMP;
+```
+
+**6. Get database date**
+
+```mySQL
+SELECT CURRENT_TIMESTAMP();
+```
+
+**7. Get default database name**
+
+```mySQL
+USE mysql;
+```
+
+**8. Get host and user name**
+
+```mySQL
+SELECT Host, User, FROM mysql.user
+```
+
+**9. Get mySQL server version**
+
+```mySQL
+mysql --V
+```
+
+**10. Bitwise XOR, AND, OR**
+
+Use bitwise operators: 
+
+```mySQL
+SELECT 1&2 AS ans, 1|2 AS or, 1^2 AS xor;
+```
+**11. Find difference between two given dates**
+```mySQL
+SELECT DIFFDATE("date1", "date1) AS result;
+```
+
+**12. Add 2 hrs 50 min to current time**
+
+```mySQL
+SELECT ADDTIME("currtime", "02:50:00") AS updated;
+```
+
+**13. Floor and Ceil of a given decimal value**
+
+```mySQL
+select floor(9.8) as f, ceil(9.8) s c;
+```
+
+**14. Do operations on Regex**
+```mySQL
+select "Krishna Keerthana" REGEXP "A*";
+select "Krishna Keerthana" REGEXP "B+";
+
+```
+
+**15. Compare 2 strings**
+
+```mySQL
+Select STRCMP('Kkay', 'Kkay') As 'Cmp_Value';
+```
+
+**16. Implement a grading system**
+
+This can be done by creating a data table:
+
+```mySQL
+-- Create a sample table
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    marks INT
+);
+
+-- Insert sample data
+INSERT INTO students (name, marks) VALUES
+    ('John Doe', 85),
+    ('Jane Smith', 70),
+    ('Alice Johnson', 95),
+    ('Bob Brown', 60),
+    ('Eve Lee', 45);
+
+-- Query to simulate grading system
+SELECT 
+    student_id,
+    name,
+    marks,
+    CASE
+        WHEN marks >= 90 THEN 'A'
+        WHEN marks >= 80 THEN 'B'
+        WHEN marks >= 70 THEN 'C'
+        WHEN marks >= 60 THEN 'D'
+        ELSE 'F'
+    END AS grade
+FROM students;
+```
+
+
+**17. Explore IFNULL()**
+
+**18. Grant all access perms to a user**
+```mySQL
+GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost';
+```
+
+
+**19. Show all databses**
+
+```mySQL
+show databases;
+```
+
+**20. Size of schema**
+
+```mySQL
+SELECT
+SUM(ROUND(((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024), 2)) AS "SIZE IN MB"
+FROM INFORMATION_SCHEMA.TABLES
+WHERE
+TABLE_SCHEMA = "SCHEMA-NAME";
+```
+
