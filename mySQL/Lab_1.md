@@ -63,7 +63,7 @@ mysql --V
 Use bitwise operators: 
 
 ```mySQL
-SELECT 1&2 AS ans, 1|2 AS or, 1^2 AS xor;
+SELECT 1&2 AS andRes, 1|2 AS orRes, 1^2 AS xorRes;
 ```
 **11. Find difference between two given dates**
 ```mySQL
