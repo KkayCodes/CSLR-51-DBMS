@@ -133,6 +133,46 @@ FROM students;
 
 **17. Explore IFNULL()**
 
+The function IFNULL() is used in SQL to check if any table values are null. The basic syntax for this function is:
+
+```mySQL
+IFNULL(expression, alt_value)
+```
+- Expression: Checks for a particular value(column) in the database table
+- Alt_value : Replaces NULL values with a given value
+
+For example:
+
+```mySQL
+
+SELECT employee_id, name, IFNULL(commision, 0) AS commission
+FROM employees;
+```
+
+Let's see how this works on a table
+
+Before:-
+
+| employee_id | name          | commission |
+|-------------|---------------|------------|
+| 101         | Alice Johnson | 500.00     |
+| 102         | Bob Smith     | NULL       |
+| 103         | Carol Davis   | 250.00     |
+| 104         | David Brown   | NULL       |
+| 105         | Emily Clark   | 300.00     |
+
+After the function statements are carried out:-
+
+| employee_id | name          | commission |
+|-------------|---------------|------------|
+| 101         | Alice Johnson | 500.00     |
+| 102         | Bob Smith     | 0.00       |
+| 103         | Carol Davis   | 250.00     |
+| 104         | David Brown   | 0.00       |
+| 105         | Emily Clark   | 300.00     |
+
+
+
 **18. Grant all access perms to a user**
 ```mySQL
 GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost';
